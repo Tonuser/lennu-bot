@@ -9,21 +9,8 @@ import re
 
 class Mandunu:
     """Ayy lmao dude"""
-    client = None
-    data_controller = None
-
-    emoji = {
-        "0": "0⃣",
-        "1": "1⃣",
-        "2": "2⃣",
-        "3": "3⃣",
-        "4": "4⃣",
-        "5": "5⃣",
-        "6": "6⃣",
-        "7": "7⃣",
-        "8": "8⃣",
-        "9": "9⃣"
-    }
+    bot = None
+    data = None
 
     # 0 = is, -1 = starts with, 1 = ends with, 2 = contains
     pos = [
@@ -67,34 +54,32 @@ class Mandunu:
         ["ass", -1], ["dildo", -1], ["anus", -1], ["kristl", -1]
     ]
 
-    def __init__(self, client, data_controller):
-        self.client = client
-        self.data_controller = data_controller
+    def __init__(self, bot, data_controller):
+        self.bot = bot
+        bot.add_cog(self)
+        self.data = data_controller
 
-        for y in client.get_all_emojis():
-            self.emoji[y.name] = y
-
-    async def handle(self, message):
+    async def on_message(self, message):
         """docstring"""
         if message.server is not None:
             author = message.server.get_member(message.author.id)
 
             gay_level = self.get_gay(message.content)
             if "mandunu" in [y.name.lower() for y in message.author.roles] or gay_level != 0:
-                await self.client.add_reaction(
-                    message, self.emoji["pede2ratus"])
-                await self.client.add_reaction(
+                await self.bot.add_reaction(
+                    message, self.data.emoji["pede2ratus"])
+                await self.bot.add_reaction(
                     message, "\N{REGIONAL INDICATOR SYMBOL LETTER G}")
-                await self.client.add_reaction(
+                await self.bot.add_reaction(
                     message, "\N{REGIONAL INDICATOR SYMBOL LETTER E}")
-                await self.client.add_reaction(
+                await self.bot.add_reaction(
                     message, "\N{REGIONAL INDICATOR SYMBOL LETTER I}")
-                await self.client.add_reaction(
+                await self.bot.add_reaction(
                     message, "\N{RAINBOW}")
-                await self.client.add_reaction(
-                    message, self.emoji[str(min(round(gay_level * 6), 9))])
-                await self.client.add_reaction(
-                    message, self.emoji[str(0)])
+                await self.bot.add_reaction(
+                    message, self.data.emoji[str(min(round(gay_level * 6), 9))])
+                await self.bot.add_reaction(
+                    message, self.data.emoji[str(0)])
 
 
     def get_gay(self, content):

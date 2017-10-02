@@ -8,9 +8,9 @@ import re
 
 
 class SpamDetector:
-    client = None
+    bot = None
     data_controller = None
 
-    def __init__(self, client, data_controller):
-        self.client = client
+    def __init__(self, bot, data_controller):
+        self.bot = bot
         self.data_controller = data_controller
