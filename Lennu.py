@@ -6,6 +6,7 @@ from cog.DataController import DataController
 from cog.Mandunu import Mandunu
 from cog.LevelSystem import LevelSystem
 
+
 class Lennu:
     bot = None
 
