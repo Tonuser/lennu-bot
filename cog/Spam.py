@@ -9,8 +9,16 @@ import re
 
 class SpamDetector:
     bot = None
-    data_controller = None
+    data = None
 
     def __init__(self, bot, data_controller):
         self.bot = bot
-        self.data_controller = data_controller
+        bot.add_cog(self)
+        self.data = data_controller
+
+    async def on_message(self, message):
+        if str(message.author) in self.data.users:
+            if str(self.data.users[str(message.author)].last_message) == str(message.content):
+                await self.bot.delete_message(message)
+        else:
+            raise Exception("Unknown user " + str(message.author))

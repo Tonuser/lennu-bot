@@ -30,8 +30,23 @@ class DataController:
         for y in bot.get_all_emojis():
             self.emoji[y.name] = y
 
-    # async def on_message(self, message):
+        for y in bot.get_all_members():
+            self.users[str(y)] = self.User(y)
+
+    async def on_message(self, message):
+        if str(message.author) in self.users:
+            member = self.users[str(message.author)]
+            self.users[str(message.author)].last_message = member.message
+            self.users[str(message.author)].message = str(message.content)
+        else:
+            raise Exception("Unknown user " + str(message.author))
+
+    async def on_member_join(self, member):
+        self.users[str(member)] = self.User(member)
+        print("User joined")
 
     class User:
-        def __init__(self):
-            last_message = ""
+        def __init__(self, user):
+            self.message = ""
+            self.last_message = ""
+            self.user = user

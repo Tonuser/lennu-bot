@@ -5,7 +5,7 @@ import asyncio
 from cog.DataController import DataController
 from cog.Mandunu import Mandunu
 from cog.LevelSystem import LevelSystem
-
+from cog.Spam import SpamDetector
 
 class Lennu:
     bot = None
@@ -15,6 +15,7 @@ class Lennu:
         bot.add_cog(self)
 
         data_controller = DataController(bot)
+        spam_detector = SpamDetector(bot, data_controller)
         level_system = LevelSystem(bot, data_controller)
         level_system.add_level("esimene_tase", 70)
         level_system.add_level("teine_tase", 140)
