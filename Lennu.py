@@ -1,10 +1,6 @@
-from discord.ext import commands
-import discord
-import asyncio
-
 from cog.DataController import DataController
-from cog.Mandunu import Mandunu
 from cog.LevelSystem import LevelSystem
+from cog.Mandunu import Mandunu
 from cog.Spam import SpamDetector
 
 

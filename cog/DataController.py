@@ -1,12 +1,3 @@
-import discord
-from discord.ext import commands
-import time
-import queue
-import asyncio
-import random
-import re
-
-
 class DataController:
     bot = None
     users = {}
