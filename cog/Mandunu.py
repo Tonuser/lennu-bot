@@ -40,7 +40,7 @@ class Mandunu:
         ["mees", 0], ["mehe", 2], ["gei", -1], ["pede", -1], ["homo", -1],
         ["seksuaal", 1], ["munn", -1], ["peenis", -1], ["munad", -1],
         ["trap", -1], ["suhu", -1], ["neel", -1], ["sperm", -1],
-        ["lähene", -1], ["kõva", 2], ["seks", -1], ["man", -1],
+        ["lähene", -1], ["seks", -1], ["man", -1],
         ["gay", -1], ["sexual", 1], ["penis", -1], ["benis", -1],
         ["dick", -1], ["cock", -1], ["wom", -1], ["blowjob", 0],
         ["erect", -1], ["sex", -1], ["mehi", -1], ["mehed", -1],
@@ -51,7 +51,8 @@ class Mandunu:
         ["cum", 2], ["türa", -1], ["toitaine", 2], ["iphone", 0],
         ["kikki", 0], ["silit", 2], ["anaal", 2],
         ["anal", 2], ["noku", 2], ["till", -1], ["bumhole", -1],
-        ["ass", -1], ["dildo", -1], ["anus", -1], ["kristl", -1]
+        ["ass", -1], ["dildo", -1], ["anus", -1], ["kristl", -1],
+        ["vibraator", 2]
     ]
 
     def __init__(self, bot, data_controller):

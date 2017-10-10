@@ -7,6 +7,7 @@ from cog.Mandunu import Mandunu
 from cog.LevelSystem import LevelSystem
 from cog.Spam import SpamDetector
 
+
 class Lennu:
     bot = None
 
@@ -23,7 +24,5 @@ class Lennu:
         level_system.add_level("neljas_tase", 280)
         mandunu = Mandunu(bot, data_controller)
 
-
     async def on_message(self, message):
-
         await self.bot.process_commands(message)

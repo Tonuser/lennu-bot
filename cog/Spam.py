@@ -18,7 +18,8 @@ class SpamDetector:
 
     async def on_message(self, message):
         if str(message.author) in self.data.users:
-            if str(self.data.users[str(message.author)].last_message) == str(message.content):
+            if str(self.data.users[str(message.author)].last_message) == str(message.content) and \
+                            len(str(message.content)) > 0:
                 await self.bot.delete_message(message)
         else:
             raise Exception("Unknown user " + str(message.author))
